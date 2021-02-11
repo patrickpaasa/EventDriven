@@ -7,9 +7,44 @@
 </head>
 
 <body>
-    <h1>Event Driven Programming</h1>
-    <h3>by: Maria Makiling</h3>
-    <h4>Nothing to do here</h4>
+    <form id="form1">
+        <input type="text" id="iusername" required minlength="5" maxlength="10">
+        <br />
+        <input type="number" id="iage" value="1" min="1" max="10" step=".01">
+        <br />
+        <input type="radio" checked="true" name="gend" id="imale" value="Male">
+        <label for="imale">Male</label>
+        <br />
+        <input type="radio" name="gend" id="ifemale" value="Female">
+        <label for="ifemale">Female</label>
+    </form>
+    <p>Sample</p>
+    <h1>Tag</h1>
+    <button id="btnSend">Send</button>
+
+    <script src="my.js"></script>
+    <script>
+        let person1 = new Person('', 2, 'test');
+        const btnSend = document.getElementById("btnSend");
+        btnSend.addEventListener('click', function () {
+            const form1 = document.getElementById('form1');
+            const elements = form1.elements;
+            let username = elements[0].value;
+            let age = elements[1].value;
+            let gend = elements[3].value;
+            if (elements[2].checked)
+                gend = elements[2].value;
+            let person = new Person(username, age, gend);
+            console.log(person.getInfo());
+        });
+
+
+        // event via function call
+        // function clicker() {
+        //     console.log("You have click this");
+        // }
+    </script>
 </body>
+
 
 </html>
